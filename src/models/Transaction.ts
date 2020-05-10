@@ -28,7 +28,7 @@ class Transaction {
   @Column()
   category_id: string;
 
-  @ManyToOne(() => Transaction)
+  @ManyToOne(() => Category, category => category.transaction, { eager: true })
   @JoinColumn({ name: 'category_id' })
   category: Category;
 
